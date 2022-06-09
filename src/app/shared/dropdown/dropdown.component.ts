@@ -8,10 +8,10 @@ import { Option } from '../../core/models/common.model';
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss'],
 })
-export class DropdownComponent<T> implements OnInit {
+export class DropdownComponent implements OnInit {
   @Input() label: string;
-  @Input() options: Option<T>[] = [];
-  @Output() selected: EventEmitter<T> = new EventEmitter<T>();
+  @Input() options: Option<any>[] = [];
+  @Output() selected: EventEmitter<any> = new EventEmitter<any>();
 
   form: FormGroup = this.fb.group({
     option: null,

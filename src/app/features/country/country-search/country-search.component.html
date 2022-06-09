@@ -1,0 +1,18 @@
+<div class="w-500">
+  <div class="grid grid-cols-2">
+    <div>
+      <app-dropdown
+        label="Region"
+        [options]="(regions$ | async) || []"
+        (selected)="onSelectRegion($event)"
+      ></app-dropdown>
+    </div>
+    <div>
+      <app-dropdown
+        label="Country"
+        [options]="(countries$ | async) || []"
+        (selected)="onSelectCountry($event)"
+      ></app-dropdown>
+    </div>
+  </div>
+</div>

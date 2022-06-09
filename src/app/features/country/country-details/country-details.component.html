@@ -1,0 +1,15 @@
+<mat-card class="w-300" *ngIf="country$ | async as country">
+  <mat-card-title>{{ country.name }}</mat-card-title>
+  <mat-card-content>
+    <div class="w-200 mb-20">
+      <img [src]="country.flag" [alt]="country.name" />
+    </div>
+    <p class="mb-15">{{ country.name }}</p>
+    <p class="mb-15">Capital: {{ country.capital }}</p>
+    <p class="mb-15">
+      Currencies:
+      <span *ngFor="let currency of country.currencies" class="mr-10">{{ currency.name }}({{ currency.symbol }})</span>
+    </p>
+    <p>Population: {{ country.population | number }}</p>
+  </mat-card-content>
+</mat-card>

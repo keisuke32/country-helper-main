@@ -1,43 +1,7 @@
 <section class="mt-50 mb-50">
   <div class="container">
-    <div class="w-500">
-      <div class="grid grid-cols-2">
-        <div>
-          <app-dropdown
-            label="Region"
-            [options]="(regions$ | async) || []"
-            (selected)="onSelectRegion($event)"
-          ></app-dropdown>
-        </div>
-        <div>
-          <app-dropdown
-            label="Country"
-            [options]="(countries$ | async) || []"
-            (selected)="onSelectCountry($event)"
-          ></app-dropdown>
-        </div>
-      </div>
-    </div>
-
-    <div *ngIf="country$ | async as country" class="flex">
-      <mat-card *ngIf="country" class="w-300">
-        <mat-card-title>{{ country.name }}</mat-card-title>
-        <mat-card-content>
-          <div class="w-200 mb-20">
-            <img [src]="country.flag" [alt]="country.name" />
-          </div>
-          <p class="mb-15">{{ country.name }}</p>
-          <p class="mb-15">Capital: {{ country.capital }}</p>
-          <p class="mb-15">
-            Currencies:
-            <span *ngFor="let currency of country.currencies" class="mr-10"
-              >{{ currency.name }}({{ currency.symbol }})</span
-            >
-          </p>
-          <p>Population: {{ country.population | number }}</p>
-        </mat-card-content>
-      </mat-card>
-    </div>
+    <app-country-search></app-country-search>
+    <app-country-details></app-country-details>
   </div>
 
   <div
